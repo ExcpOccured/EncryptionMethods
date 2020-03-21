@@ -1,8 +1,11 @@
-#include "pch.h"
+#include "src/Headers/pch.h"
+
+#include <minwindef.h>
+#include <winnt.h>
 
 BOOL APIENTRY dll_main(HMODULE h_module,
-	const DWORD  ul_reason_for_call,
-	LPVOID lp_reserved
+                       const DWORD  ul_reason_for_call,
+                       LPVOID lp_reserved
 )
 {
 	switch (ul_reason_for_call)

@@ -1,10 +1,12 @@
-﻿#include "pch.h"
+﻿#include "Headers\pch.h"
 
 #include "TranspositionCipher.h"
 #include "RectangularVectors.h"
 #include "stringhelper.h"
 #include "stringbuilder.h"
 #include <list>
+#include <string>
+#include <vector>
 
 namespace transposition_cipher
 {

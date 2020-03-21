@@ -151,10 +151,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Test\TranspositionCipher.h" />
-    <ClInclude Include="..\..\Test\RectangularVectors.h" />
-    <ClInclude Include="..\..\Test\stringbuilder.h" />
-    <ClInclude Include="..\..\Test\stringhelper.h" />
+    <ClInclude Include="..\..\Test\RectangularVectors.h">
+      <Link>Test\RectangularVectors.h</Link>
+    </ClInclude>
+    <ClInclude Include="..\..\Test\stringbuilder.h">
+      <Link>Test\stringbuilder.h</Link>
+    </ClInclude>
+    <ClInclude Include="..\..\Test\stringhelper.h">
+      <Link>Test\stringhelper.h</Link>
+    </ClInclude>
+    <ClInclude Include="..\..\Test\TranspositionCipher.h">
+      <Link>Test\TranspositionCipher.h</Link>
+    </ClInclude>
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
@@ -167,6 +175,12 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Update="..\..\Test" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
