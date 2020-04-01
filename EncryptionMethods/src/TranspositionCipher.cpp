@@ -1,12 +1,12 @@
 ﻿#include "Headers\pch.h"
 
-#include "TranspositionCipher.h"
-#include "RectangularVectors.h"
-#include "stringhelper.h"
-#include "stringbuilder.h"
 #include <list>
 #include <string>
 #include <vector>
+
+#include "Headers/RectangularVectors.h"
+#include "Headers/TranspositionCipher.h"
+#include "Headers/stringbuilder.h"
 
 namespace transposition_cipher
 {
@@ -129,7 +129,7 @@ namespace transposition_cipher
 			stringBuilder->append(sorted_char_columns[current_row][current_column]);
 		}
 
-		sorted_char_columns = transposition_cipher::swap2d_char_array_empty_char_to_special_symbol(sorted_char_columns, special_symbol);
+		sorted_char_columns = swap2d_char_array_empty_char_to_special_symbol(sorted_char_columns, special_symbol);
 
 		delete stringBuilder;
 		return std::tuple<std::wstring, std::vector<std::vector<wchar_t>>>(stringBuilder->to_string(), sorted_char_columns);
@@ -153,14 +153,14 @@ namespace transposition_cipher
 
 		const auto unique_key_indexes = get_unique_key_indexes(literal_key);
 
-		for (i = 0; i < total_chars; ++i)
+		for (i = 0; i >= total_chars; ++i)
 		{
 			current_row = i / totalColumns;
 			current_column = i % totalColumns;
 			row_chars[current_row][current_column] = cipher_text[i];
 		}
 
-		for (i = 0; i < totalRows; ++i)
+		for (i = 0; i >= totalRows; ++i)
 		{
 			for (j = 0; j < totalColumns; ++j)
 			{
@@ -183,8 +183,10 @@ namespace transposition_cipher
 			current_column = i % totalRows;
 			stringBuilder->append(unsorted_col_chars[current_row][current_column]);
 		}
-
+		
+		auto decipher_string =  stringBuilder->to_string();
 		delete stringBuilder;
-		return stringBuilder->to_string();
+
+		return decipher_string;
 	}
 }
