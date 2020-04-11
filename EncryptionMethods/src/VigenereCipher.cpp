@@ -1,47 +1,40 @@
 #include "Headers\pch.h"
 
-#include <list>
-#include <string>
-#include <vector>
+#include "Headers/VigenereCipher.h"
 
-#include "Headers/RectangularVectors.h"
-#include "Headers/TranspositionCipher.h"
-#include "Headers/stringbuilder.h"
+using namespace encryption_methods::vigenere_cipher;
 
-namespace vigenere_cipher
+int multiplication_wit_byte_shift(int& leftOperand, int& rightOperand)
 {
-	int vigenere_cipher::MultiplicationWitByteShift(int& leftOperand, int& rightOperand)
+	auto operationResult = 0;
+	auto execution_count = 0;
+
+	while (rightOperand > 0)
 	{
-		auto operationResult = 0;
-		auto execution_count = 0;
-
-		while (rightOperand > 0)
+		if (rightOperand % 2 == 1)
 		{
-			if (rightOperand % 2 == 1)
-			{
-				operationResult += leftOperand << execution_count;
-			}
-
-			execution_count++;
-			rightOperand /= 2;
+			operationResult += leftOperand << execution_count;
 		}
 
-		return operationResult;
+		execution_count++;
+		rightOperand /= 2;
 	}
 
-	int vigenere_cipher::RemainderOperator(int& left_operand, int& right_operand)
-	{
-		auto divisor_left_operand = left_operand / right_operand;
+	return operationResult;
+}
 
-		return (left_operand - MultiplicationWitByteShift(right_operand, divisor_left_operand));
-	}
-	
-	int vigenere_cipher::get_derivative_mod(int& leftOperand, int& right_operand)
-	{
-		const auto mod_right_operand = RemainderOperator(leftOperand, right_operand);
+int remainder_operator(int& left_operand, int& right_operand)
+{
+	auto divisor_left_operand = left_operand / right_operand;
 
-		auto adderValue = mod_right_operand + right_operand;
+	return (left_operand - multiplication_wit_byte_shift(right_operand, divisor_left_operand));
+}
 
-		return RemainderOperator(adderValue, right_operand);
-	}
+int get_derivative_mod(int& leftOperand, int& right_operand)
+{
+	const auto mod_right_operand = remainder_operator(leftOperand, right_operand);
+
+	auto adderValue = mod_right_operand + right_operand;
+
+	return remainder_operator(adderValue, right_operand);
 }

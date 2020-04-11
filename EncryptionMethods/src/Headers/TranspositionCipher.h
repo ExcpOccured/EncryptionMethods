@@ -9,7 +9,7 @@ namespace encryption_methods
 {
 	namespace transposition_cipher
 	{
-		class transposition_cipher
+		class transposition_cipher_type
 		{
 		public:
 			std::tuple<std::wstring, std::vector<std::vector<wchar_t>>> encipher(std::wstring& plain_text, std::wstring& literal_key, const char& padding_characters = L'\0', wchar_t special_symbol = L'*');

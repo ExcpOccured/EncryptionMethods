@@ -6,7 +6,7 @@ namespace encryption_methods
 {
 	namespace vigenere_cipher
 	{
-		class vigenere_cipher
+		class vigenere_cipher_type
 		{
 		public:
 			std::wstring cipher(std::wstring& input_text, std::wstring& literal_key, bool is_encipher);

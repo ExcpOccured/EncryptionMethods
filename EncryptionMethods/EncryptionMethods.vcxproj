@@ -151,6 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Domain\ExceptionFormatter.h" />
+    <ClInclude Include="src\Headers\FeistelCipher.h" />
     <ClInclude Include="src\Headers\framework.h" />
     <ClInclude Include="src\Headers\pch.h" />
     <ClInclude Include="src\Headers\RectangularVectors.h" />
@@ -167,6 +169,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\FeistelCipher.cpp" />
     <ClCompile Include="src\TranspositionCipher.cpp" />
     <ClCompile Include="src\VigenereCipher.cpp" />
   </ItemGroup>
