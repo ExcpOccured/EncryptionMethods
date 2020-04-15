@@ -17,7 +17,7 @@ Vigenère can also be described algebraically. If the letters A–Z are taken to
 
 ### Feistel cipher:
 
- is a symmetric structure used in the construction of block ciphers. A large proportion of block ciphers use the scheme, including the Data Encryption Standard (DES). 
+ This cipher is a symmetric structure used in the construction of block ciphers. A large proportion of block ciphers use the scheme, including the Data Encryption Standard (DES). 
  The Feistel structure has the advantage that encryption and decryption operations are very similar, even identical in some cases, requiring only a reversal of the key schedule. Therefore, the size of the code or circuitry 
   required to implement such a cipher is nearly halved.
   
